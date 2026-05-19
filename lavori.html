@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavori | firethesuper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-white: #ffffff;
+            --card-light: #f9f9f9;
+            --card-red: #FF2400;
+            --text-dark: #191919;
+            --text-muted: #666666;
+            --primary-red: #FF2400;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding-top: 130px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 36, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary-red);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-red);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            letter-spacing: -0.5px;
+            color: var(--text-dark);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background-color: var(--card-light);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            border: 1px solid rgba(255, 36, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 36, 0, 0.05);
+        }
+
+        .project-img-wrapper {
+            flex: 1;
+            min-width: 40%;
+            position: relative;
+            background-color: #000;
+            aspect-ratio: 16 / 9;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .project-info {
+            flex: 1.5;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-tag {
+            align-self: flex-start;
+            background-color: rgba(255, 36, 0, 0.1);
+            color: var(--primary-red);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-dark);
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 6px 14px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-link {
+            align-self: flex-start;
+            background-color: var(--text-dark);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s;
+        }
+
+        .project-link:hover {
+            background-color: var(--primary-red);
+        }
+
+        @media (max-width: 992px) {
+            .project-card {
+                flex-direction: column;
+            }
+            .project-info {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">firethesuper</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" class="active">Works</a></li>
+            <li><a href="social.html">Links</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="kyrosai.png" alt="KyrosAI" class="project-img">
+                </div>
+                <div class="project-info">
+                    <div class="project-tag">Artificial Intelligence</div>
+                    <h3 class="project-title">Kyros AI</h3>
+                    <p class="project-description">KyrosAI è un ecosistema digitale personalizzato basato sull'intelligenza artificiale, progettato per offrire un'esperienza interattiva e di supporto avanzato.</p>
+                    <div class="project-tech">
+                        <div class="tech-badge"><i class="fa-solid fa-brain"></i> HTML</div>
+                    </div>
+                    <a href="https://kyrosai.it" target="_blank" class="project-link">Vedi Progetto <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
